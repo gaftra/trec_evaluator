@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+{% load staticfiles %}
+
 <html>
 
 	<head>
@@ -6,6 +9,7 @@
 	</head>
 	
 	<body>
+		<img src="{% static "images/trec_logo.png" %}" alt="Trec Logo" />
 		<h1>Under Construction</h1>
 		In the meantime, please <strong>{{ boldmessage }}</strong><br />
 		<a href="/trecapp/about/">About</a><br />

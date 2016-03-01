@@ -63,3 +63,7 @@ target/
 
 # The database
 db.sqlite3
+
+# Windows image bullshit
+Thumbs.db
+thumbs.db

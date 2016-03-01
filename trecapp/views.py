@@ -3,4 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-	return HttpResponse("UNDER CONSTRUCTION - untill then, just google it")
+
+	context_dict = {'boldmessage': "Use google"}
+	
+	return render(request, 'trecapp/index.html', context_dict)

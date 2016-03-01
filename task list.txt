@@ -1,0 +1,41 @@
+Task List
+
+Setup a github repository [Stephen]
+
+Login/Register
+----Create a Login View
+----Create a Login Template
+----Create a Registration View
+----Create a Registration Template
+----Create a Registration Form
+----Create a User Model
+
+View Tracks and Tasks [Stephen]
+----Create a Track Model
+----Create a Task Model
+----Create a view for Viewing Tracks
+----Create a view for Viewing Tasks
+----Create a template for Viewing Tracks
+----Create a template for Viewing Tasks
+
+Researcher uploads a file
+----Allow a researcher to upload and store their .res file
+----Run the .res file against trec eval
+----Return the results in a format python can understand
+----Create a form for uploading the file
+----Create a view for uploading the file
+----Create a template for uploading the file
+----Add the run to the tasks' leaderboard
+
+Leaderboards
+----Design what the leaderboard looks like (eg run name, resaarcher name, P10, P20, MAP, etc?)
+----Create a model for the leaderboard
+
+Administrative Tasks
+----Allow an admin to create a new track/task
+----Allow an admin to attack a relevancy judgement file (.qrels) to each task
+
+Other
+----Create a base template, with a header and a footer [Stephen]
+----Create some nice CSS
+----Setup logging

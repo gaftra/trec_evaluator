@@ -1,3 +1,5 @@
 from django.contrib import admin
+from trecapp.models import Track, Task
 
-# Register your models here.
+admin.site.register(Track)
+admin.site.register(Task)

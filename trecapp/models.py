@@ -1,4 +1,6 @@
 from django.db import models
+import os
+from django.conf import settings
 
 # Create your models here.
 class Track(models.Model):
@@ -16,4 +18,4 @@ class Task(models.Model):
 	task_url = models.URLField()
 	description = models.CharField(max_length=400)
 	year = models.IntegerField(default=2016)
-	judgementFile = models.FileField(upload_to='Relevance Judgement Files/', null=False)
+	judgementFile = models.FileField(upload_to='/media/data', null=False)

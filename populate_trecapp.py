@@ -46,13 +46,14 @@ def populate():
 	)
 	
 	# Create the tasks
-	#add_task(
-	#	track = robust2005,
-	#	title = "Ad Hoc Topic Retrieval",
-	#	url = "http://trec.nist.gov/data/t14_robust.html",
-	#	description = "For each topic find all the relevant documents",
-	#	year = 2005,
-	#	judgementFile = ???????????TODO??????
+	add_task(
+		track = robust2005,
+		title = "Ad Hoc Topic Retrieval",
+		url = "http://trec.nist.gov/data/t14_robust.html",
+		description = "For each topic find all the relevant documents",
+		year = 2005,
+		judgementFile = "/media/data/robust/aq.trec2005.qrels"
+	)
 	
 # Adds a track
 def add_track(title, url, description, genre):
@@ -70,6 +71,7 @@ def add_task(track, title, url, description, year, judgementFile):
 	task.description = description
 	task.year = year
 	task.judgementFile = judgementFile
+	task.save()
 	
 if __name__ == '__main__':
 	print "Starting trecapp population script..."

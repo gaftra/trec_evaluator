@@ -17,6 +17,12 @@
 			{% else %}
 				<strong>No tasks currently in track.</strong>
 			{% endif %}
+			
+			<!-- This section will allow a logged in user to upload a results file for later comparison -->
+			<!-- Uncomment when authentication has been added
+			{% if user.is_authenticated %}
+			{% endif %} -->
+				
 		{% else %}
 			The specified track {{ track_title }} does not exist!
 		{% endif %}

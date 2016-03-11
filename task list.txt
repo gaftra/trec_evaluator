@@ -2,7 +2,7 @@ Task List
 
 Setup a github repository [Stephen]
 
-Login/Register
+Login/Register [Daniel]
 ----Create a Login View
 ----Create a Login Template
 ----Create a Registration View

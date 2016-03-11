@@ -10,7 +10,7 @@ Login/Register
 ----Create a Registration Form
 ----Create a User Model
 
-View Tracks and Tasks [Stephen]
+View Tracks and Tasks [Stephen - Done]
 ----Create a Track Model
 ----Create a Task Model
 ----Create a view for Viewing Tracks
@@ -27,11 +27,11 @@ Researcher uploads a file
 ----Create a template for uploading the file
 ----Add the run to the tasks' leaderboard
 
-Leaderboards
+Leaderboards [Kristina]
 ----Design what the leaderboard looks like (eg run name, resaarcher name, P10, P20, MAP, etc?)
 ----Create a model for the leaderboard
 
-Administrative Tasks
+Administrative Tasks [Stephen - Done]
 ----Allow an admin to create a new track/task
 ----Allow an admin to attack a relevancy judgement file (.qrels) to each task
 

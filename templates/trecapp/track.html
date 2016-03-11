@@ -12,7 +12,7 @@
 			<ul>
 				{% for task in tasks %}
 				<!-- Change this to a link to each individual task page -->
-				<li><a href="{{ task.task_url }}">{{ task.title }}</a></li>
+				<li><a href="/trecapp/track/{{ track.slug }}/{{ task.slug }}">{{ task.title }}</a></li>
 				{% endfor %}
 			</ul>
 			{% else %}

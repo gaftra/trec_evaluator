@@ -19,6 +19,20 @@ def track(request, track_name_slug):
 		pass
 		
 	return render(request, 'trecapp/track.html', context_dict)
+	
+def task(request, track_name_slug, task_name_slug):
+	context_dict = {}
+	
+	try:
+		track_name = Track.objects.get(slug=track_name_slug)
+		task = Task.objects.get(slug=task_name_slug, track=track_name)
+		context_dict['task_title'] = task.title
+		
+		context_dict['task'] = task
+	except Task.DoesNotExist:
+		pass
+		
+	return render(request, 'trecapp/task.html', context_dict)
 
 def index(request):
 	# Gets a list of all the current Tracks

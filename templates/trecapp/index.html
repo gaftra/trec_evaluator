@@ -11,7 +11,20 @@
 	<body>
 		<img src="{% static "images/trec_logo.png" %}" alt="Trec Logo" />
 		<h1>Under Construction</h1>
-		In the meantime, please <strong>{{ boldmessage }}</strong><br />
+		In the meantime, please use google<br />
+		
+		<h1>Tracks</h1>
+		{% if tracks %}
+			<ul>
+				{% for track in tracks %}
+				<li>{{ track.title }}</li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<strong>There are no tracks present. Run the population script you twit</strong>
+		{% endif %}
+		
+
 		<a href="/trecapp/about/">About</a><br />
 	</body>
 	

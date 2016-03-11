@@ -25,3 +25,11 @@ class Task(models.Model):
 	description = models.CharField(max_length=400)
 	year = models.IntegerField(default=2016)
 	judgementFile = models.FileField(upload_to='/media/data', null=False)
+	slug = models.SlugField()
+	
+	def save(self, *args, **kwargs):
+		self.slug = slugify(self.title)
+		super(Task, self).save(*args, **kwargs)
+		
+	def __unicode__(self):
+		return self.title

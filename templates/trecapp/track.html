@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Trec Evaluator</title>
+	</head>
+	
+	<body>
+		{% if track %}
+		<h1>{{ track_title }}</h1>
+			{% if tasks %}
+			<ul>
+				{% for task in tasks %}
+				<li><a href="{{ task.task_url }}">{{ task.title }}</a></li>
+				{% endfor %}
+			</ul>
+			{% else %}
+				<strong>No tasks currently in track.</strong>
+			{% endif %}
+		{% else %}
+			The specified track {{ track_title }} does not exist!
+		{% endif %}
+	</body>
+</html>

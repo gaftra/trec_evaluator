@@ -17,7 +17,7 @@
 		{% if tracks %}
 			<ul>
 				{% for track in tracks %}
-				<li>{{ track.title }}</li>
+				<li><a href="/trecapp/track/{{ track.slug }}">{{ track.title }}</a></li>
 				{% endfor %}
 			</ul>
 		{% else %}

@@ -1,14 +1,10 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
 {% load staticfiles %}
 
-<html>
+{% block title %}Home{% endblock %}
 
-	<head>
-		<title>Trec Evaluator App</title>
-	</head>
-	
-	<body>
+{% block body_block %}
 		<img src="{% static "images/trec_logo.png" %}" alt="Trec Logo" />
 		<h1>Under Construction</h1>
 		In the meantime, please use google<br />
@@ -24,8 +20,4 @@
 			<strong>There are no tracks present. Run the population script you twit</strong>
 		{% endif %}
 		
-
-		<a href="/trecapp/about/">About</a><br />
-	</body>
-	
-</html>
+{% endblock %}

@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Trec Evaluator</title>
-	</head>
-	
-	<body>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ track_title }}{% endblock %}
+
+{% block body_block %}
+
 		{% if track %}
 		<h1>{{ track_title }}</h1>
 			{% if tasks %}
@@ -19,5 +20,4 @@
 		{% else %}
 			The specified track {{ track_title }} does not exist!
 		{% endif %}
-	</body>
-</html>
+{% endblock %}

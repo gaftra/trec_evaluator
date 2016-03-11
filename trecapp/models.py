@@ -14,7 +14,7 @@ class Track(models.Model):
 		
 class Task(models.Model):
 	track = models.ForeignKey(Track, null=False)
-	title = models.CharField(max_length=128, unique=True, null=False)
+	title = models.CharField(max_length=128, null=False)
 	task_url = models.URLField()
 	description = models.CharField(max_length=400)
 	year = models.IntegerField(default=2016)

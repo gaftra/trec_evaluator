@@ -55,6 +55,24 @@ def populate():
 		judgementFile = "/media/data/robust/aq.trec2005.qrels"
 	)
 	
+	add_task (
+		track = terabyte,
+		title = "Ad Hoc Topic Retrieval",
+		url = "http://www-nlpir.nist.gov/projects/terabyte/",
+		description = "Find all the relevant web pages",
+		year = 2005,
+		judgementFile = "/media/data/web/dg.trec.qrels"
+	)
+	
+	add_task (
+		track = apnews,
+		title = "Ad Hoc Topic Retrieval",
+		url = "",
+		description = "Find all the relevant news articles",
+		year = 2001,
+		judgementFile = "/media/data/news/ap.trec.qrels"
+	)
+	
 # Adds a track
 def add_track(title, url, description, genre):
 	track = Track.objects.get_or_create(title=title)[0]

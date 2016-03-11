@@ -7,3 +7,6 @@ def index(request):
 	context_dict = {'boldmessage': "Use google"}
 	
 	return render(request, 'trecapp/index.html', context_dict)
+	
+def about(request):
+	return render(request, 'trecapp/about.html')

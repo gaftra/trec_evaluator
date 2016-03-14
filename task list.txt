@@ -1,6 +1,6 @@
 Task List
 
-Setup a github repository [Stephen]
+Setup a github repository [Stephen - Done]
 
 Login/Register [Daniel]
 ----Create a Login View
@@ -18,8 +18,8 @@ View Tracks and Tasks [Stephen - Done]
 ----Create a template for Viewing Tracks
 ----Create a template for Viewing Tasks
 
-Researcher uploads a file
-----Allow a researcher to upload and store their .res file
+Researcher uploads a file [Mixed]
+----Allow a researcher to upload and store their .res file [Stephen]
 ----Run the .res file against trec eval
 ----Return the results in a format python can understand
 ----Create a form for uploading the file
@@ -36,7 +36,7 @@ Administrative Tasks [Stephen - Done]
 ----Allow an admin to attack a relevancy judgement file (.qrels) to each task
 
 Other
-----Create a base template, with a header and a footer [Stephen]
+----Create a base template, with a header and a footer [Stephen - Done]
 ----Create some nice CSS
 ----Setup logging
 

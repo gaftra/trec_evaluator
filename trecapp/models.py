@@ -84,3 +84,6 @@ class Run(models.Model):
 	map = models.FloatField()
 	p10 = models.FloatField()
 	p20 = models.FloatField()
+	
+	def __unicode__(self):
+		return self.name

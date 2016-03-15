@@ -5,7 +5,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'trec_evaluator.settings')
 import django
 django.setup()
 
-from trecapp.models import Track, Task
+from trecapp.models import Track, Task, Researcher
 
 # Populate the database with good data, based on github.com/leifos/wad/..../trec
 def populate():
@@ -73,6 +73,22 @@ def populate():
 		judgementFile = "/media/data/news/ap.trec.qrels"
 	)
 	
+	# Create test researchers jill jim and joe
+	jill = add_researcher(
+		username = "jill",
+		password = "jill"
+	)
+	
+	jim = add_researcher (
+		username = "jim",
+		password = "jim"
+	)
+	
+	joe = add_researcher (
+		username = "joe",
+		password = "joe"
+	)
+	
 # Adds a track
 def add_track(title, url, description, genre):
 	track = Track.objects.get_or_create(title=title)[0]
@@ -90,6 +106,12 @@ def add_task(track, title, url, description, year, judgementFile):
 	task.year = year
 	task.judgementFile = judgementFile
 	task.save()
+	
+# Adds a researcher
+def add_researcher(username, password):
+	researcher = Researcher.objects.get_or_create(username=username, password=password)[0]
+	researcher.save()
+	return researcher
 	
 if __name__ == '__main__':
 	print "Starting trecapp population script..."

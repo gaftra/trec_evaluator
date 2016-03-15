@@ -4,6 +4,12 @@ from django.conf import settings
 from django.template.defaultfilters import slugify
 
 # Create your models here.
+
+# STUB to get the run model working
+class Researcher(models.Model):
+	username = models.CharField(max_length=128, unique=True, null=False)
+	password = models.CharField(max_length=128, null=False)
+	
 class Track(models.Model):
 	title = models.CharField(max_length=128, unique=True, null=False)
 	track_url = models.URLField()

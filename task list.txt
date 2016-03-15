@@ -37,7 +37,7 @@ Administrative Tasks [Stephen - Done]
 
 Other
 ----Create a base template, with a header and a footer [Stephen - Done]
-----Create some nice CSS
+----Create some nice CSS [Stephen - Done]
 ----Setup logging
 
 test

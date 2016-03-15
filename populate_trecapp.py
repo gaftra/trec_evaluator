@@ -113,6 +113,10 @@ def add_researcher(username, password):
 	researcher.save()
 	return researcher
 	
+# Adds a run
+def add_run():
+	#stuff
+	
 if __name__ == '__main__':
 	print "Starting trecapp population script..."
 	populate()

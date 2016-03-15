@@ -30,6 +30,23 @@ def task(request, track_name_slug, task_name_slug):
 		context_dict['task_title'] = task.title
 		
 		context_dict['task'] = task
+		
+		# Upload Run Form
+		if request.method == 'POST':
+			form = UploadRunForm(request.POST)
+			
+			if form.is_valid():
+				form.save(commit=True)
+				
+				return index(request)
+			else:
+				print form.errors
+			
+		else:
+			form = UploadRunForm()
+		
+		context_dict['form'] = form
+		
 	except Task.DoesNotExist:
 		pass
 		
@@ -43,4 +60,5 @@ def index(request):
 	return render(request, 'trecapp/index.html', context_dict)
 	
 def about(request):
-	return render(request, 'trecapp/about.html')
+	return render(request, 'trecapp/about.html')	
+	

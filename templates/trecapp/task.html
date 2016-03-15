@@ -9,7 +9,7 @@
 		<h1>{{ task.title }}</h1>
 	</div>
 	<!-- if the user is registered, show a place to upload a .res file here -->
-		<form role="form" id="upload_run_form" method="post" action="/trecapp/track/{{ track.slug }}/{{ task.slug }}">
+		<form role="form" id="upload_run_form" enctype="multipart/form-data" method="post" action="/trecapp/track/{{ track.slug }}/{{ task.slug }}">
 		
 			{% csrf_token %}
 			{% for hidden in form.hidden_fields %}

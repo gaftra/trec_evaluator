@@ -73,17 +73,20 @@ class Run(models.Model):
 		(FEEDBACK_OTHER, "Other"),
 	)
 	
-	researcher = models.ForeignKey(Researcher, null=False)
-	task = models.ForeignKey(Task, null=False)
-	name = models.CharField(max_length=128)
-	description = models.CharField(max_length=512)
-	result_file = models.FileField(upload_to='/media/results', null=False)
-	run_type = models.IntegerField(choices=RUN_TYPE, default=0)
-	query_type = models.IntegerField(choices=QUERY_TYPE, default=4)
-	feedback_type = models.IntegerField(choices=FEEDBACK_TYPE, default=0)
-	map = models.FloatField()
-	p10 = models.FloatField()
-	p20 = models.FloatField()
+	researcher 		= models.ForeignKey(Researcher, null=False)
+	task 			= models.ForeignKey(Task, null=False)
+	name 			= models.CharField(max_length=128, default="")
+	description		= models.CharField(max_length=512, default="")
+	result_file 	= models.FileField(upload_to='results/', null=False)
+	run_type 		= models.IntegerField(choices=RUN_TYPE, default=0)
+	query_type 		= models.IntegerField(choices=QUERY_TYPE, default=4)
+	feedback_type 	= models.IntegerField(choices=FEEDBACK_TYPE, default=0)
+	map 			= models.FloatField(default=0.0, null=True)
+	p10 			= models.FloatField(default=0.0, null=True)
+	p20 			= models.FloatField(default=0.0, null=True)
 	
+	def save(self, *args, **kwargs):
+		super(Run, self).save(*args, **kwargs)
+		
 	def __unicode__(self):
 		return self.name

@@ -19,12 +19,12 @@ View Tracks and Tasks [Stephen - Done]
 ----Create a template for Viewing Tasks
 
 Researcher uploads a file [Mixed]
-----Allow a researcher to upload and store their .res file [Stephen]
+----Allow a researcher to upload and store their .res file [Stephen - Done]
 ----Run the .res file against trec eval
 ----Return the results in a format python can understand
-----Create a form for uploading the file
-----Create a view for uploading the file
-----Create a template for uploading the file
+----Create a form for uploading the file [Stephen - Done]
+----Create a view for uploading the file [Stephen - Done]
+----Create a template for uploading the file [Stephen - Done]
 ----Add the run to the tasks' leaderboard
 
 Leaderboards [Kristina]

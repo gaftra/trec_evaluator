@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from trecapp.models import Track
 from trecapp.models import Task
 from trecapp.models import Researcher
+from django.contrib.auth.models import User
 from trecapp.models import Run
 from trecapp.forms import UploadRunForm, UserForm, ResearcherForm
 
@@ -26,41 +27,44 @@ def track(request, track_name_slug):
 def task(request, track_name_slug, task_name_slug):
 	context_dict = {}
 	
-	try:
-		track_name = Track.objects.get(slug=track_name_slug)
-		task = Task.objects.get(slug=task_name_slug, track=track_name)
-		track = Track.objects.get(slug=track_name_slug)
-		researcher = Researcher.objects.get(username="jill") #temporary, swiwch to user logged in later
-		context_dict['track'] = track
-		context_dict['task_title'] = task.title
-		context_dict['task'] = task
-		
-		# Upload Run Form
-				
-		if request.method == "POST":
-			form = UploadRunForm(request.POST, request.FILES)
+	# If the user is logged in, create a form
+	if request.user.is_authenticated():
+		try:
+			track_name = Track.objects.get(slug=track_name_slug)
+			task = Task.objects.get(slug=task_name_slug, track=track_name)
+			track = Track.objects.get(slug=track_name_slug)
+			user = User.objects.get(username=request.user)
+			researcher = Researcher.objects.get(user=user)
+			context_dict['track'] = track
+			context_dict['task_title'] = task.title
+			context_dict['task'] = task
 			
-			if form.is_valid():
-				run = form.save(commit=False)
-				run.researcher = researcher
-				run.task = task
-				form.save(commit=True)
+			# Upload Run Form
 					
-				#return task(request, track_name_slug, task_name_slug)
-				return index(request)
+			if request.method == "POST":
+				form = UploadRunForm(request.POST, request.FILES)
+				
+				if form.is_valid():
+					run = form.save(commit=False)
+					run.researcher = researcher
+					run.task = task
+					form.save(commit=True)
+						
+					#return task(request, track_name_slug, task_name_slug)
+					return index(request)
+					
+				else:
+					print "YOUR FORM ISN'T FUCKEN VALID"
+					print form.errors
 				
 			else:
-				print "YOUR FORM ISN'T FUCKEN VALID"
-				print form.errors
+				form = UploadRunForm()
 			
-		else:
-			form = UploadRunForm()
-		
-		context_dict['form'] = form
-		context_dict['researcher'] = researcher
-		
-	except Task.DoesNotExist:
-		pass
+			context_dict['form'] = form
+			context_dict['researcher'] = researcher
+			
+		except Task.DoesNotExist:
+			pass
 		
 	return render(request, 'trecapp/task.html', context_dict)
 

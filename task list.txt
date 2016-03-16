@@ -8,7 +8,7 @@ Login/Register [Daniel]
 ----Create a Registration View [Stephen - Done]
 ----Create a Registration Template [Stephen - Done]
 ----Create a Registration Form [Stephen - Done]
-----Create a User Model
+----Create a User Model [ Stephen - Done]
 
 View Tracks and Tasks [Stephen - Done]
 ----Create a Track Model

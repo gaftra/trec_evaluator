@@ -8,7 +8,7 @@
 	<div class="page-header">
 		<h1>{{ task.title }}</h1>
 	</div>
-	<!-- if the user is registered, show a place to upload a .res file here -->
+	{% if user.is_authenticated %}
 		<form role="form" id="upload_run_form" enctype="multipart/form-data" method="post" action="/trecapp/track/{{ track.slug }}/{{ task.slug }}">
 		
 			{% csrf_token %}
@@ -24,5 +24,8 @@
 		
 			<button class="btn btn-primary" type="submit" name="submit">Upload Run</button>
 		</form>
+	{% else %}
+		<p>Please login to upload a run</p>
+	{% endif %}
 	<!-- show the leaderboard regardless of authentication status-->
 {% endblock %}

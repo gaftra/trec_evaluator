@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Register{% endblock %}
+
+{% block body_block %}
+<h1>Register with Trec_evaluator</h1>
+
+	{% if registered %}
+	<p>Thank you for registering!</p>
+	<a href="/trecapp/">Return to the homepage</a></br>
+	{% else %}
+	
+	<form role="form" id="user_form" method="post" action="/trecapp/register/">
+	
+		{% csrf_token %}
+	
+		{{ user_form.as_p }}
+		{{ researcher_form.as_p }}
+	
+		<button class="btn btn-primary" type="submit" name="submit">Register</button>
+	</form>
+	{% endif %}
+{% endblock %}

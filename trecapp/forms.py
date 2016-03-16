@@ -1,5 +1,6 @@
 from django import forms
-from trecapp.models import Run
+from django.contrib.auth.models import User
+from trecapp.models import Run, Researcher
 from django.forms import ModelForm
 
 class UploadRunForm(forms.ModelForm):
@@ -19,4 +20,15 @@ class UploadRunForm(forms.ModelForm):
 		# Hide the researcher and Task foreign keys
 		exclude = ('researcher', 'task',)
 		
+class UserForm(forms.ModelForm):
+	password = forms.CharField(widget=forms.PasswordInput())
+	
+	class Meta:
+		model = User
+		fields = ('username', 'email', 'password')
+		
+class ResearcherForm(forms.ModelForm):
+	class Meta:
+		model = Researcher
+		fields = ('display_name','organization')
 	

@@ -4,7 +4,7 @@ from trecapp.models import Track
 from trecapp.models import Task
 from trecapp.models import Researcher
 from trecapp.models import Run
-from trecapp.forms import UploadRunForm
+from trecapp.forms import UploadRunForm, UserForm, ResearcherForm
 
 # Create your views here.
 def track(request, track_name_slug):
@@ -73,4 +73,34 @@ def index(request):
 	
 def about(request):
 	return render(request, 'trecapp/about.html')	
+	
+
+def register(request):
+	registered = False
+	
+	if request.method == 'POST':
+		user_form = UserForm(data=request.POST)
+		researcher_form = ResearcherForm(data=request.POST)
+		
+		if user_form.is_valid() and researcher_form.is_valid():
+			user = user_form.save()
+			
+			user.set_password(user.password)
+			user.save()
+			
+			researcher = researcher_form.save(commit=False)
+			researcher.user = user
+			
+			researcher.save()
+			
+			registered = True
+		
+		else:
+			print user_form.errors, researcher_form.errors
+			
+	else:
+		user_form = UserForm()
+		researcher_form = ResearcherForm()
+		
+	return render(request, 'trecapp/register.html', {'user_form': user_form, 'researcher_form': researcher_form, 'registered': registered } )
 	

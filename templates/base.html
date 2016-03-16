@@ -37,6 +37,13 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/trecapp/">Home</a></li>
+						
+						{% if user.is_authenticated %}
+							<li><a href="{% url 'auth_logout' %}?next=/trecapp/">Logout</a></li>
+						{% else %}
+							<li><a href="{% url 'registration_register' %}">Register</a></li>
+							<li><a href="{% url 'auth_login' %}">Login</a></li>
+						{% endif %}
 						<li><a href="/trecapp/about">About</a></li>
 					</ul>
 				</div>

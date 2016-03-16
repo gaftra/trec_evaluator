@@ -1,3 +1,4 @@
 Remove all instances of calling a user a twit etc.
 Add some useless comments to the code
 Remove the UNDER CONSTRUCTION sign
+Add django-registration-redux to list of requirements

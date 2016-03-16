@@ -26,6 +26,11 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Registration Settings
+REGISTRATION_OPEN = True
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/trecapp/'
+LOGIN_URL = '/accounts/login/'
 
 # Application definition
 
@@ -36,7 +41,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'trecapp'
+	'trecapp',
+	'registration',
 )
 
 MIDDLEWARE_CLASSES = (

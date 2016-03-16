@@ -2,13 +2,21 @@ from django.db import models
 import os
 from django.conf import settings
 from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 # STUB to get the run model working
 class Researcher(models.Model):
-	username = models.CharField(max_length=128, unique=True, null=False)
-	password = models.CharField(max_length=128, null=False)
+	# Links a researcher to a User Model Instance
+	user = models.OneToOneField(User)
+
+	# Additional attributes
+	display_name = models.CharField(max_length=64, unique=True)
+	organization = models.CharField(max_length=512, blank=True)
+	
+	def __unicode__(self):
+		return self.user.username
 	
 class Track(models.Model):
 	title = models.CharField(max_length=128, unique=True, null=False)

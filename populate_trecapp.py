@@ -74,7 +74,7 @@ def populate():
 	)
 	
 	# Create test researchers jill jim and joe
-	jill = add_researcher(
+	'''jill = add_researcher(
 		username = "jill",
 		password = "jill"
 	)
@@ -87,7 +87,7 @@ def populate():
 	joe = add_researcher (
 		username = "joe",
 		password = "joe"
-	)
+	)'''
 	
 # Adds a track
 def add_track(title, url, description, genre):
@@ -114,9 +114,9 @@ def add_researcher(username, password):
 	return researcher
 	
 # Adds a run
-def add_run():
+#def add_run():
 	#stuff
-	
+
 if __name__ == '__main__':
 	print "Starting trecapp population script..."
 	populate()

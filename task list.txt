@@ -3,11 +3,11 @@ Task List
 Setup a github repository [Stephen - Done]
 
 Login/Register [Daniel]
-----Create a Login View
-----Create a Login Template
-----Create a Registration View
-----Create a Registration Template
-----Create a Registration Form
+----Create a Login View [ Stephen - Done]
+----Create a Login Template [Stephen - Done]
+----Create a Registration View [Stephen - Done]
+----Create a Registration Template [Stephen - Done]
+----Create a Registration Form [Stephen - Done]
 ----Create a User Model
 
 View Tracks and Tasks [Stephen - Done]

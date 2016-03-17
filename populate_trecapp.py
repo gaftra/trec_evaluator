@@ -5,7 +5,8 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'trec_evaluator.settings')
 import django
 django.setup()
 
-from trecapp.models import Track, Task, Researcher
+from trecapp.models import Track, Task, Researcher, Run
+from django.contrib.auth.models import User
 
 # Populate the database with good data, based on github.com/leifos/wad/..../trec
 def populate():
@@ -73,21 +74,77 @@ def populate():
 		judgementFile = "/media/data/news/ap.trec.qrels"
 	)
 	
-	# Create test researchers jill jim and joe
-	'''jill = add_researcher(
+	# Create example data researchers
+	asu = add_researcher (
+		username = "ASU",
+		password = "ASU",
+		display_name = "Alpha Team",
+		organization = "AS University"
+	)
+	
+	ck = add_researcher (
+		username = "CK",
+		password = "CK",
+		display_name = "Chaos and Kontrol",
+		organization = "CK University",
+	)
+	
+	hk = add_researcher (
+		username = "HK",
+		password = "HK",
+		display_name = "HongKongIR",
+		organization = "HK University",
+	)
+	
+	ict = add_researcher (
+		username = "ICT",
+		password = "ICT",
+		display_name = "ICTer",
+		organization = "University of ICT",
+	)
+	
+	rim = add_researcher (
+		username = "RIM",
+		password = "RIM",
+		display_name = "IRJobs",
+		organization = "Royal Institute of Mayhem",
+	)
+	
+	#Create all of leifs required test users
+	jill = add_researcher(
 		username = "jill",
-		password = "jill"
+		password = "jill",
+		display_name = "jill",
+		organization = "test_users",
 	)
 	
 	jim = add_researcher (
 		username = "jim",
-		password = "jim"
+		password = "jim",
+		display_name = "jim",
+		organization = "test_users",
 	)
 	
 	joe = add_researcher (
 		username = "joe",
-		password = "joe"
-	)'''
+		password = "joe",
+		display_name = "joe",
+		organization = "test_users",
+	)
+	
+	bob = add_researcher (
+		username = "bob",
+		password = "bob",
+		display_name = "bob",
+		organization = "test_users"
+	)
+	
+	jen = add_researcher (
+		username = "jen",
+		password = "jen",
+		display_name = "jen",
+		organization = "test_users",
+	)
 	
 # Adds a track
 def add_track(title, url, description, genre):
@@ -108,8 +165,11 @@ def add_task(track, title, url, description, year, judgementFile):
 	task.save()
 	
 # Adds a researcher
-def add_researcher(username, password):
-	researcher = Researcher.objects.get_or_create(username=username, password=password)[0]
+def add_researcher(username, password, display_name, organization):
+	user 					= User.objects.get_or_create(username=username, password=password)[0]
+	researcher 				= Researcher.objects.get_or_create(user=user)[0]
+	researcher.display_name = display_name
+	researcher.organization = organization
 	researcher.save()
 	return researcher
 	

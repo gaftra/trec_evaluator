@@ -5,19 +5,23 @@
 {% block title %}Home{% endblock %}
 
 {% block body_block %}
-		<img src="{% static "images/trec_logo.png" %}" alt="Trec Logo" />
-		<h1>Under Construction</h1>
-		In the meantime, please use google<br />
-		
-		<h1>Tracks</h1>
+		<div class="panel panel-primary">
+    		<div class="panel-heading">
+            	<h3 class="panel-title">Tracks</h3>
+    		</div>
+		</div>
 		{% if tracks %}
-			<ul>
-				{% for track in tracks %}
-				<li><a href="/trecapp/track/{{ track.slug }}">{{ track.title }}</a></li>
-				{% endfor %}
-			</ul>
+			<div class="row placeholders">
+            	<div class="col-xs-12 col-sm-6 placeholder">
+					<ul class="list-group">
+						{% for track in tracks %}
+						<li class="list-group-item"><a href="/trecapp/track/{{ track.slug }}">{{ track.title }}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
 		{% else %}
-			<strong>There are no tracks present. Run the population script you twit</strong>
+			<strong>There are no tracks present. Run the population script</strong>
 		{% endif %}
 		
 {% endblock %}

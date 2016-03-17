@@ -11,3 +11,10 @@ This is a django webapp to perform search comparison magic
 3. In a directory, call git clone https://github.com/gaftra/trec_evalutor.git. This will create a folder structure of trec_evalutor/<repo_contents>
 
 4. run python manage.py runserver, and navigate to 127.0.0.1:8000/trecapp
+
+##Contributors
+----------------------------
+gaftra: Stephen Brown 1106679B
+juranec: Daniel Juranec <number>
+<githubID>: Kristina Genova <number>
+<githubID>: Dominykas Vytautas Jakstonis <number>

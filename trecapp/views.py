@@ -54,7 +54,7 @@ def task(request, track_name_slug, task_name_slug):
 					run.researcher = researcher
 					run.task = task
 					form.save(commit=True)
-						
+	
 					# Interact with trec_eval
 					judgement_file_location = File(run.task.judgementFile).name
 					judgement_file_location = judgement_file_location[1:]
@@ -65,8 +65,6 @@ def task(request, track_name_slug, task_name_slug):
 
 					trec_eval_location = os.path.join(settings.BASE_DIR, 'trec_eval')
 
-					command = trec_eval_location + " " + true_judgement_file_location + " " + true_result_file_location
-			#		return_string = subprocess.Popen(command, shell=True)
 					return_string = check_output([trec_eval_location, true_judgement_file_location, true_result_file_location])
 	
 					map_string = ""
@@ -82,10 +80,15 @@ def task(request, track_name_slug, task_name_slug):
 							p20_string = line	
 
 					# Get the values from the strings
-					print map_string
-					print p10_string
-					print p20_string
+					map_value = map_string.split()[2]
+					p10_value = p10_string.split()[2]
+					p20_value = p20_string.split()[2]
 										
+
+					run.map = map_value
+					run.p10 = p10_value
+					run.p20 = p20_value
+					form.save(commit=True)
 					return index(request)
 					
 				else:

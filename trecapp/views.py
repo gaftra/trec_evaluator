@@ -16,9 +16,17 @@ from subprocess import check_output
 def profile(request):
 	context_dict = {}
 	username = User.objects.get(username=request.user)
+	profile_picture = Researcher.objects.get(user=username).profile_picture
+	website = Researcher.objects.get(user=username).website
+	display_name = Researcher.objects.get(user=username).display_name
+	organization = Researcher.objects.get(user=username).organization
+
 
 	context_dict['username'] = username
-
+	context_dict['website'] = website
+	context_dict['profile_picture'] = profile_picture
+	context_dict['display_name'] = display_name
+	context_dict['organization'] = organization
 	return render(request, 'trecapp/profile.html', context_dict)
 
 

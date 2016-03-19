@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>Trec Evaluator - {% block title %}A search evaluation system{% endblock %}</title>
+    <title>TREC Evaluator - {% block title %}A search evaluation system{% endblock %}</title>
 
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
@@ -39,8 +39,7 @@
 						<li><a href="/trecapp/">Home</a></li>
 						
 						{% if user.is_authenticated %}
-							<li><img src="/media/profile_pic.png" height="50" /></li>
-							<li><a href="{% url 'profile' %}?next=/trecapp/">{{ user.username }}</a></li>
+							<li><a href="{% url 'profile' %}">{{ user.username }}</a></li>
 							<li><a href="{% url 'auth_logout' %}?next=/trecapp/">Logout</a></li>
 						{% else %}
 							<li><a href="{% url 'register' %}">Register</a></li>

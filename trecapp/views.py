@@ -10,6 +10,7 @@ import os
 from django.conf import settings
 from django.core.files import File
 import subprocess
+from subprocess import check_output
 
 # Create your views here.
 def track(request, track_name_slug):
@@ -65,11 +66,26 @@ def task(request, track_name_slug, task_name_slug):
 					trec_eval_location = os.path.join(settings.BASE_DIR, 'trec_eval')
 
 					command = trec_eval_location + " " + true_judgement_file_location + " " + true_result_file_location
-					returnString = subprocess.Popen(command, shell=True)
-
+			#		return_string = subprocess.Popen(command, shell=True)
+					return_string = check_output([trec_eval_location, true_judgement_file_location, true_result_file_location])
 	
+					map_string = ""
+					p10_string = ""
+					p20_string = ""
 					# Scan through return string to extract MAP, P10 and P20
-					
+					for line in iter(return_string.splitlines()):
+						if 'map' in line and not 'gm_map' in line:
+							map_string = line
+						if 'P_10' in line and not 'P_100' in line and not 'P_1000' in line:
+							p10_string = line
+						if 'P_20' in line and not 'P_200' in line:
+							p20_string = line	
+
+					# Get the values from the strings
+					print map_string
+					print p10_string
+					print p20_string
+										
 					return index(request)
 					
 				else:

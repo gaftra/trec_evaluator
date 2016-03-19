@@ -20,6 +20,9 @@ This is a django webapp to perform search comparison magic
 ##Contributors
 ----------------------------
 gaftra: Stephen Brown 1106679B
+
 juranec: Daniel Juranec 2145171J
-kristinagenova: Kristina Genova <number>
-<githubID>: Dominykas Vytautas Jakstonis <number>
+
+kristinagenova: Kristina Genova <'number>
+
+<'githubID>: Dominykas Vytautas Jakstonis <'number>

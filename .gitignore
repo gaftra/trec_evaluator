@@ -67,3 +67,9 @@ db.sqlite3
 # Windows image bullshit
 Thumbs.db
 thumbs.db
+
+# Temporary files produced by vim
+*.swp
+
+# Temporary results files
+media/results/*

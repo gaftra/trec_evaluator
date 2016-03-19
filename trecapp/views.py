@@ -6,6 +6,11 @@ from trecapp.models import Researcher
 from django.contrib.auth.models import User
 from trecapp.models import Run
 from trecapp.forms import UploadRunForm, UserForm, ResearcherForm
+import os
+from django.conf import settings
+from django.core.files import File
+import subprocess
+from subprocess import check_output
 
 # Create your views here.
 def profile(request):
@@ -58,14 +63,45 @@ def task(request, track_name_slug, task_name_slug):
 					run.researcher = researcher
 					run.task = task
 					form.save(commit=True)
-						
-					#return task(request, track_name_slug, task_name_slug)
+	
+					# Interact with trec_eval
+					judgement_file_location = File(run.task.judgementFile).name
+					judgement_file_location = judgement_file_location[1:]
+					true_judgement_file_location = os.path.join(settings.BASE_DIR, judgement_file_location)
+
+					result_file_location = File(run.result_file).name
+					true_result_file_location = os.path.join(settings.MEDIA_ROOT, result_file_location)
+
+					trec_eval_location = os.path.join(settings.BASE_DIR, 'trec_eval')
+
+					return_string = check_output([trec_eval_location, true_judgement_file_location, true_result_file_location])
+	
+					map_string = ""
+					p10_string = ""
+					p20_string = ""
+					# Scan through return string to extract MAP, P10 and P20
+					for line in iter(return_string.splitlines()):
+						if 'map' in line and not 'gm_map' in line:
+							map_string = line
+						if 'P_10' in line and not 'P_100' in line and not 'P_1000' in line:
+							p10_string = line
+						if 'P_20' in line and not 'P_200' in line:
+							p20_string = line	
+
+					# Get the values from the strings
+					map_value = map_string.split()[2]
+					p10_value = p10_string.split()[2]
+					p20_value = p20_string.split()[2]
+										
+
+					run.map = map_value
+					run.p10 = p10_value
+					run.p20 = p20_value
+					form.save(commit=True)
 					return index(request)
 					
 				else:
-					print "YOUR FORM ISN'T FUCKEN VALID"
 					print form.errors
-				
 			else:
 				form = UploadRunForm()
 			

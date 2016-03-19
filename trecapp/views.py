@@ -8,6 +8,15 @@ from trecapp.models import Run
 from trecapp.forms import UploadRunForm, UserForm, ResearcherForm
 
 # Create your views here.
+def profile(request):
+	context_dict = {}
+	username = User.objects.get(username=request.user)
+
+	context_dict['username'] = username
+
+	return render(request, 'trecapp/profile.html', context_dict)
+
+
 def track(request, track_name_slug):
 	context_dict = {}
 	

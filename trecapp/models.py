@@ -21,8 +21,6 @@ class Researcher(models.Model):
 	display_name = models.CharField(max_length=30, blank=True)
 	organization = models.CharField(max_length=512, blank=True)
 	
-
-
 	def __unicode__(self):
 		return self.user.username
 	

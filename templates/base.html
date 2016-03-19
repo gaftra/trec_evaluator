@@ -39,6 +39,8 @@
 						<li><a href="/trecapp/">Home</a></li>
 						
 						{% if user.is_authenticated %}
+							<li><img src="/media/profile_pic.png" height="50" /></li>
+							<li><a href="{% url 'profile' %}?next=/trecapp/">{{ user.username }}</a></li>
 							<li><a href="{% url 'auth_logout' %}?next=/trecapp/">Logout</a></li>
 						{% else %}
 							<li><a href="{% url 'register' %}">Register</a></li>

@@ -5,9 +5,11 @@
 {% block title %}{{ task_title }}{% endblock %}
 
 {% block body_block %}
-	<div class="page-header">
-		<h1>{{ task.title }}</h1>
-	</div>
+	<div class="panel panel-primary">
+    		<div class="panel-heading">
+            	<h3 class="panel-title">{{ task_title }}</h3>
+    		</div>
+		</div>
 	{% if user.is_authenticated %}
 		<form role="form" id="upload_run_form" enctype="multipart/form-data" method="post" action="/trecapp/track/{{ track.slug }}/{{ task.slug }}">
 		

@@ -7,14 +7,22 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 # STUB to get the run model working
+
+def upload_dir(instance, filename):
+    return 'images/' + str(instance.user.username) + '/' + filename
+
 class Researcher(models.Model):
 	# Links a researcher to a User Model Instance
 	user = models.OneToOneField(User)
 
 	# Additional attributes
-	display_name = models.CharField(max_length=64, unique=True)
+	profile_picture = models.ImageField(upload_to=upload_dir, default='profile_pic.png')
+	website = models.CharField(max_length=512, blank=True)
+	display_name = models.CharField(max_length=30, blank=True)
 	organization = models.CharField(max_length=512, blank=True)
 	
+
+
 	def __unicode__(self):
 		return self.user.username
 	

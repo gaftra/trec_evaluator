@@ -12,7 +12,7 @@
 	<a href="/trecapp/">Return to the homepage</a></br>
 	{% else %}
 	
-	<form role="form" id="user_form" method="post" action="/trecapp/register/">
+	<form enctype="multipart/form-data" role="form" id="user_form" method="post" action="/trecapp/register/" >
 	
 		{% csrf_token %}
 	

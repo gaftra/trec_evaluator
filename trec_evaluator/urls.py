@@ -4,7 +4,7 @@ from django.conf import settings
 from registration.backends.simple.views import RegistrationView
 
 class MyRegistrationView(RegistrationView):
-    def get_success_url(self,request, user):
+    def get_success_url(self,request):
         return '/trecapp/'
 
 urlpatterns = patterns('',

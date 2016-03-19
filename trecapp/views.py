@@ -84,7 +84,7 @@ def register(request):
 	
 	if request.method == 'POST':
 		user_form = UserForm(data=request.POST)
-		researcher_form = ResearcherForm(data=request.POST)
+		researcher_form = ResearcherForm(request.POST, request.FILES)
 		
 		if user_form.is_valid() and researcher_form.is_valid():
 			user = user_form.save()

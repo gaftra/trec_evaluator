@@ -6,6 +6,10 @@ from trecapp.models import Researcher
 from django.contrib.auth.models import User
 from trecapp.models import Run
 from trecapp.forms import UploadRunForm, UserForm, ResearcherForm
+import os
+from django.conf import settings
+from django.core.files import File
+import subprocess
 
 # Create your views here.
 def track(request, track_name_slug):
@@ -50,13 +54,26 @@ def task(request, track_name_slug, task_name_slug):
 					run.task = task
 					form.save(commit=True)
 						
-					#return task(request, track_name_slug, task_name_slug)
+					# Interact with trec_eval
+					judgement_file_location = File(run.task.judgementFile).name
+					judgement_file_location = judgement_file_location[1:]
+					true_judgement_file_location = os.path.join(settings.BASE_DIR, judgement_file_location)
+
+					result_file_location = File(run.result_file).name
+					true_result_file_location = os.path.join(settings.MEDIA_ROOT, result_file_location)
+
+					trec_eval_location = os.path.join(settings.BASE_DIR, 'trec_eval')
+
+					command = trec_eval_location + " " + true_judgement_file_location + " " + true_result_file_location
+					returnString = subprocess.Popen(command, shell=True)
+
+	
+					# Scan through return string to extract MAP, P10 and P20
+					
 					return index(request)
 					
 				else:
-					print "YOUR FORM ISN'T FUCKEN VALID"
 					print form.errors
-				
 			else:
 				form = UploadRunForm()
 			

@@ -70,3 +70,6 @@ thumbs.db
 
 # Temporary files produced by vim
 .swp
+
+# Temporary results files
+./media/results

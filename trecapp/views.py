@@ -15,19 +15,73 @@ from subprocess import check_output
 # Create your views here.
 def profile(request):
 	context_dict = {}
-	username = User.objects.get(username=request.user)
-	profile_picture = Researcher.objects.get(user=username).profile_picture
-	website = Researcher.objects.get(user=username).website
-	display_name = Researcher.objects.get(user=username).display_name
-	organization = Researcher.objects.get(user=username).organization
+	
+	try:
+		username = User.objects.get(username=request.user.username)
+		email = User.objects.get(username=request.user).email
+		profile_picture = Researcher.objects.get(user=username).profile_picture
+		website = Researcher.objects.get(user=username).website
+		display_name = Researcher.objects.get(user=username).display_name
+		organization = Researcher.objects.get(user=username).organization
 
+		context_dict['username'] = username
+		context_dict['email'] = email
+		context_dict['website'] = website
+		context_dict['profile_picture'] = profile_picture
+		context_dict['display_name'] = display_name
+		context_dict['organization'] = organization
+	except User.DoesNotExist:
+		pass
 
-	context_dict['username'] = username
-	context_dict['website'] = website
-	context_dict['profile_picture'] = profile_picture
-	context_dict['display_name'] = display_name
-	context_dict['organization'] = organization
 	return render(request, 'trecapp/profile.html', context_dict)
+
+def editprofile(request):
+	context_dict = {}
+
+	#on save
+	if request.method == 'POST':
+		user_form = UserForm(request.POST, instance=request.user)
+		researcher_form = ResearcherForm(request.POST, request.FILES, instance=request.user)
+		
+		user = User.objects.get(username=request.user)
+		researcher = Researcher.objects.get(user=user)
+		researcher.user = user
+
+		user.email = request.POST.get('email')
+		researcher.profile_picture = request.FILES.get('profile_picture')
+		researcher.website = request.POST.get('website')
+		researcher.display_name = request.POST.get('display_name')
+		researcher.organization = request.POST.get('organization')
+
+		user.save()
+		researcher.save()
+
+		return profile(request)
+	
+	#edit form	
+	else:
+		user_form = UserForm()
+		researcher_form = ResearcherForm()
+
+		if request.user.is_authenticated():
+			try:
+				username = User.objects.get(username=request.user.username)
+				email = User.objects.get(username=request.user).email
+				profile_picture = Researcher.objects.get(user=username).profile_picture
+				website = Researcher.objects.get(user=username).website
+				display_name = Researcher.objects.get(user=username).display_name
+				organization = Researcher.objects.get(user=username).organization
+
+				context_dict['username'] = username
+				context_dict['email'] = email
+				context_dict['website'] = website
+				context_dict['profile_picture'] = profile_picture
+				context_dict['display_name'] = display_name
+				context_dict['organization'] = organization
+			except User.DoesNotExist:
+				pass
+
+	return render(request, 'trecapp/editprofile.html', context_dict )
 
 
 def track(request, track_name_slug):

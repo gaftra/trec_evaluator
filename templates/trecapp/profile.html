@@ -13,9 +13,14 @@
     		</div>
 		</div>
 		<img src="/media/{{ profile_picture }}" />
-		<p>{{ website }}<br/>{{ display_name }}<br/>{{ organization }}</p>
+		<p>{{ email }}</p>
+		<p>{{ website }}</p>
+		<p>{{ display_name }}</p>
+		<p>{{ organization }}</p>
+		<a class="btn btn-default" href="{% url 'editprofile' %}">Edit profile</a>
+		<a class="btn btn-default" href="{% url 'auth_password_change' %}">Change password</a>
 	{% else %}
-		<p>Please login to upload a run</p>
+		<p>Please login to see your profile!</p>
 	{% endif %}
 	<!-- show the leaderboard regardless of authentication status-->
 {% endblock %}

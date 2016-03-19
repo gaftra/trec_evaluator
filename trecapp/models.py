@@ -16,10 +16,10 @@ class Researcher(models.Model):
 	user = models.OneToOneField(User)
 
 	# Additional attributes
-	profile_picture = models.ImageField(upload_to=upload_dir, default='profile_pic.png')
+	profile_picture = models.ImageField(upload_to=upload_dir, default='profile_pic.png', blank=True)
 	website = models.CharField(max_length=512, blank=True)
-	display_name = models.CharField(max_length=30, blank=True)
-	organization = models.CharField(max_length=512, blank=True)
+	display_name = models.CharField(max_length=30)
+	organization = models.CharField(max_length=512)
 	
 	def __unicode__(self):
 		return self.user.username

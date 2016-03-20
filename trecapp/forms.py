@@ -31,4 +31,8 @@ class ResearcherForm(forms.ModelForm):
 	class Meta:
 		model = Researcher
 		fields = ('profile_picture', 'website', 'display_name', 'organization')
-	
+
+class UserEditForm(forms.ModelForm):	
+	class Meta:
+		model = User
+		fields = ('email',)

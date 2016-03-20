@@ -5,7 +5,7 @@ from trecapp.models import Task
 from trecapp.models import Researcher
 from django.contrib.auth.models import User
 from trecapp.models import Run
-from trecapp.forms import UploadRunForm, UserForm, ResearcherForm
+from trecapp.forms import UploadRunForm, UserForm, ResearcherForm, UserEditForm
 import os
 from django.conf import settings
 from django.core.files import File
@@ -40,21 +40,24 @@ def editprofile(request):
 
 	#on save
 	if request.method == 'POST':
-		user_form = UserForm(request.POST, instance=request.user)
-		researcher_form = ResearcherForm(request.POST, request.FILES, instance=request.user)
+
+		user_form = UserEditForm(data=request.POST)
+		researcher_form = ResearcherForm(request.POST, request.FILES)
 		
-		user = User.objects.get(username=request.user)
-		researcher = Researcher.objects.get(user=user)
-		researcher.user = user
+		if user_form.is_valid() and researcher_form.is_valid():
+			user = User.objects.get(username=request.user)
+			researcher = Researcher.objects.get(user=user)
+			researcher.user = user
 
-		user.email = request.POST.get('email')
-		researcher.profile_picture = request.FILES.get('profile_picture')
-		researcher.website = request.POST.get('website')
-		researcher.display_name = request.POST.get('display_name')
-		researcher.organization = request.POST.get('organization')
+			user.email = request.POST.get('email')
+			if 'profile_picture' in request.FILES:
+				researcher.profile_picture = request.FILES.get('profile_picture')
+			researcher.website = request.POST.get('website')
+			researcher.display_name = request.POST.get('display_name')
+			researcher.organization = request.POST.get('organization')
 
-		user.save()
-		researcher.save()
+			user.save()
+			researcher.save()
 
 		return profile(request)
 	

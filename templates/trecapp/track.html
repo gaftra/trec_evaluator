@@ -6,21 +6,25 @@
 
 {% block body_block %}
 
-		{% if track %}
+	{% if track %}
 		<div class="panel panel-primary">
     		<div class="panel-heading">
-            	<h3 class="panel-title">{{ track_title }}</h3>
+            	<h3 class="panel-title">Track: {{ track_title }}</h3>
     		</div>
 		</div>
 			{% if tasks %}
-			<ul class="list-group">
-				{% for task in tasks %}
-				<!-- Change this to a link to each individual task page -->
-				<li class="list-group-item"><a href="/trecapp/track/{{ track.slug }}/{{ task.slug }}">{{ task.title }}</a></li>
-				{% endfor %}
-			</ul>
+				<div class="row">
+					<div class="col-md-6">
+						<ul class="list-group">
+							{% for task in tasks %}
+							<!-- Change this to a link to each individual task page -->
+							<li class="list-group-item"><a href="/trecapp/track/{{ track.slug }}/{{ task.slug }}">{{ task.title }}</a></li>
+						{% endfor %}
+						</ul>
+					</div>
+				</div>
 			{% else %}
-				<strong>No tasks currently in track.</strong>
+				<p>No tasks currently in track.</p>
 			{% endif %}
 			
 			<!-- This section will allow a logged in user to upload a results file for later comparison -->
@@ -28,7 +32,7 @@
 			{% if user.is_authenticated %}
 			{% endif %} -->
 				
-		{% else %}
-			The specified track {{ track_title }} does not exist!
-		{% endif %}
+	{% else %}
+		<p>The specified track {{ track_title }} does not exist!</p>
+	{% endif %}
 {% endblock %}

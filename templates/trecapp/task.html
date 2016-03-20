@@ -6,10 +6,10 @@
 
 {% block body_block %}
 	<div class="panel panel-primary">
-    		<div class="panel-heading">
-            	<h3 class="panel-title">{{ task_title }}</h3>
-    		</div>
-		</div>
+    	<div class="panel-heading">
+            <h3 class="panel-title">Task: {{ task_title }}</h3>
+    	</div>
+	</div>
 	{% if user.is_authenticated %}
 		<form role="form" id="upload_run_form" enctype="multipart/form-data" method="post" action="/trecapp/track/{{ track.slug }}/{{ task.slug }}">
 		

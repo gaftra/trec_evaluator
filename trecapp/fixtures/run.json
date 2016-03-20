@@ -1,0 +1,70 @@
+[
+{
+  "fields": {
+    "map": 0.1,
+    "run_type": 1,
+    "task": 1,
+    "name": "example name",
+    "researcher": 1,
+    "query_type": 3,
+    "feedback_type": 2,
+    "p10": 0.63,
+    "p20": 0.78,
+    "result_file": "file1.txt",
+    "description": "example desription"
+  },
+  "model": "trecapp.run",
+  "pk": 1
+},
+  {
+  "fields": {
+    "map": 0.87,
+    "run_type": 0,
+    "task": 2,
+    "name": "example name #2",
+    "researcher": 2,
+    "query_type": 2,
+    "feedback_type": 1,
+    "p10": 0.93,
+    "p20": 0.18,
+    "result_file": "file2.txt",
+    "description": "example desription #2"
+  },
+  "model": "trecapp.run",
+  "pk": 2
+},
+  {
+  "fields": {
+    "map": 0.31,
+    "run_type": 1,
+    "task": 1,
+    "name": "example name #3",
+    "researcher": 3,
+    "query_type": 1,
+    "feedback_type": 0,
+    "p10": 0.3,
+    "p20": 0.8,
+    "result_file": "file3.txt",
+    "description": "example desription 3"
+  },
+  "model": "trecapp.run",
+  "pk": 3
+},
+  {
+  "fields": {
+    "map": 0.11,
+    "run_type": 0,
+    "task": 2,
+    "name": "example name 4",
+    "researcher": 1,
+    "query_type": 0,
+    "feedback_type": 0,
+    "p10": 0.13,
+    "p20": 0.31,
+    "result_file": "file4.txt",
+    "description": "no description :)"
+  },
+  "model": "trecapp.run",
+  "pk": 4
+}
+]

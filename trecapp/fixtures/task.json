@@ -1,0 +1,41 @@
+[
+{
+  "fields": {
+    "description": "For each topic find all the relevant documents",
+    "title": "Ad Hoc Topic Retrieval",
+    "track": 2,
+    "slug": "ad-hoc-topic-retrieval",
+    "year": 2005,
+    "judgementFile": "/media/data/robust/aq.trec2005.qrels",
+    "task_url": "http://trec.nist.gov/data/t14_robust.html"
+  },
+  "model": "trecapp.task",
+  "pk": 1
+},
+{
+  "fields": {
+    "description": "Find all the relevant web pages",
+    "title": "Ad Hoc Topic Retrieval",
+    "track": 4,
+    "slug": "ad-hoc-topic-retrieval",
+    "year": 2005,
+    "judgementFile": "/media/data/web/dg.trec.qrels",
+    "task_url": "http://www-nlpir.nist.gov/projects/terabyte/"
+  },
+  "model": "trecapp.task",
+  "pk": 2
+},
+{
+  "fields": {
+    "description": "Find all the relevant news articles",
+    "title": "Ad Hoc Topic Retrieval",
+    "track": 5,
+    "slug": "ad-hoc-topic-retrieval",
+    "year": 2001,
+    "judgementFile": "/media/data/news/ap.trec.qrels",
+    "task_url": ""
+  },
+  "model": "trecapp.task",
+  "pk": 3
+}
+]

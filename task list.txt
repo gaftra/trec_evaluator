@@ -2,7 +2,7 @@ Task List
 
 Setup a github repository [Stephen - Done]
 
-Login/Register [Daniel]
+Login/Register [Daniel - Done]
 ----Create a Login View [ Stephen - Done]
 ----Create a Login Template [Stephen - Done]
 ----Create a Registration View [Stephen - Done]
@@ -20,12 +20,11 @@ View Tracks and Tasks [Stephen - Done]
 
 Researcher uploads a file [Mixed]
 ----Allow a researcher to upload and store their .res file [Stephen - Done]
-----Run the .res file against trec eval
-----Return the results in a format python can understand
+----Run the .res file against trec eval [Stephen - Done]
+----Return the results in a format python can understand [Stephen - Done]
 ----Create a form for uploading the file [Stephen - Done]
 ----Create a view for uploading the file [Stephen - Done]
 ----Create a template for uploading the file [Stephen - Done]
-----Add the run to the tasks' leaderboard
 
 Leaderboards [Kristina]
 ----Design what the leaderboard looks like (eg run name, resaarcher name, P10, P20, MAP, etc?)
@@ -38,4 +37,4 @@ Administrative Tasks [Stephen - Done]
 Other
 ----Create a base template, with a header and a footer [Stephen - Done]
 ----Create some nice CSS [Stephen - Done]
-----Setup logging
+----Update population script to include the sample runs

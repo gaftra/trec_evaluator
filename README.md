@@ -6,9 +6,9 @@ This is a django webapp to perform search comparison magic
 
 1. mkvirtualenv --system-site-packages <env_name>
 
-2. pip install -r requirements.txt
+2. In a directory, call git clone https://github.com/gaftra/trec_evalutor.git. This will create a folder structure of trec_evalutor/<repo_contents>
 
-3. In a directory, call git clone https://github.com/gaftra/trec_evalutor.git. This will create a folder structure of trec_evalutor/<repo_contents>
+3. pip install -r requirements.txt
 
 4. Create a database superuser via python manage.py createsuperuser
 

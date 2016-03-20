@@ -184,4 +184,9 @@ def add_researcher(username, password, display_name, organization):
 if __name__ == '__main__':
 	print "Starting trecapp population script..."
 	populate()
+	python manage.py loaddata researcher.json
+	python manage.py loaddata task.json
+	python manage.py loaddata track.json
+	python manage.py loaddata run.json
+	python manage.py loaddata leaderboard.json
 	print "Done"

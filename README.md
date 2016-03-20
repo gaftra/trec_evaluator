@@ -18,11 +18,6 @@ This is a django webapp to perform search comparison magic
    
    ```
       python populate_trecapp.py 
-      python manage.py loaddata researcher.json
-      python manage.py loaddata task.json
-      python manage.py loaddata track.json
-      python manage.py loaddata run.json
-      python manage.py loaddata leaderboard.json
       
    ```
 

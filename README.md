@@ -10,14 +10,14 @@ This is a django webapp to perform search comparison magic
 
 3. pip install -r requirements.txt
 
-4. Create a database superuser via python manage.py createsuperuser
+4. Create a test database using python manage.py migrate 
 
-5. Create a test database using python manage.py migrate 
+5. Create a database superuser via python manage.py createsuperuser
 
 6. To seed the data use the following commands:
    
    ```
-      python populate_trecapp.py # try not using 3rd party written scripts. Django supports almost everything you need in a "djano-way-of-doing-stuff"
+      python populate_trecapp.py 
       python manage.py loaddata researcher.json
       python manage.py loaddata task.json
       python manage.py loaddata track.json

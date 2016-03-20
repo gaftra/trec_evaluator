@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from trecapp.models import Track
 from trecapp.models import Task
 from trecapp.models import Researcher
+from trecapp.models import Leaderboard
 from django.contrib.auth.models import User
 from trecapp.models import Run
 from trecapp.forms import UploadRunForm, UserForm, ResearcherForm
@@ -214,4 +215,10 @@ def register(request):
 		researcher_form = ResearcherForm()
 		
 	return render(request, 'trecapp/register.html', {'user_form': user_form, 'researcher_form': researcher_form, 'registered': registered } )
-	
+
+def leaderboard(request):
+
+	data = Leaderboard.objects.order_by('-map')
+
+
+	return render (request, "trecapp/leaderboard.html", {"data": data } )

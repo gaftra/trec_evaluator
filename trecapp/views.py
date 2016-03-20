@@ -223,5 +223,4 @@ def leaderboard(request):
 
 	data = Leaderboard.objects.order_by('-map')
 
-
 	return render (request, "trecapp/leaderboard.html", {"data": data } )

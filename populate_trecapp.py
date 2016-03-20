@@ -166,7 +166,11 @@ def add_task(track, title, url, description, year, judgementFile):
 	
 # Adds a researcher
 def add_researcher(username, password, display_name, organization):
-	user 					= User.objects.get_or_create(username=username, password=password)[0]
+	user 					= User.objects.get_or_create(username=username)[0]
+	# you have to use the setter so that the password isn't set in plain text but it uses the hasher.
+	user.set_password(password)
+	#don't forget to save it, :)
+	user.save()
 	researcher 				= Researcher.objects.get_or_create(user=user)[0]
 	researcher.display_name = display_name
 	researcher.organization = organization

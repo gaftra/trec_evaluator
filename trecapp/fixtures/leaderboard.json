@@ -1,0 +1,24 @@
+[
+{
+  "fields": {
+    "p10": 0.63,
+    "map": 0.1,
+    "run": 1,
+    "p20": 0.78,
+    "researcher_name": "Alpha Team"
+  },
+  "model": "trecapp.leaderboard",
+  "pk": 1
+},
+{
+  "fields": {
+    "p10": 0.93,
+    "map": 0.87,
+    "run": 2,
+    "p20": 0.18,
+    "researcher_name": "Chaos and Kontrol"
+  },
+  "model": "trecapp.leaderboard",
+  "pk": 2
+}
+]

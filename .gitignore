@@ -73,3 +73,6 @@ thumbs.db
 
 # Temporary results files
 media/results/*
+
+# IDE files
+.idea

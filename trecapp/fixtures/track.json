@@ -1,0 +1,57 @@
+[
+{
+  "fields": {
+    "genre": "News",
+    "track_url": "http://trec.nist.gov/data/t13_robust.html",
+    "description": "News Retrieval",
+    "slug": "robust2004",
+    "title": "Robust2004"
+  },
+  "model": "trecapp.track",
+  "pk": 1
+},
+{
+  "fields": {
+    "genre": "News",
+    "track_url": "http://trec.nist.gov/data/t14_robust.html",
+    "description": "News Retrieval",
+    "slug": "robust2005",
+    "title": "Robust2005"
+  },
+  "model": "trecapp.track",
+  "pk": 2
+},
+{
+  "fields": {
+    "genre": "Web",
+    "track_url": "http://ciir.csumass.edu/research/million/",
+    "description": "Million Query Track",
+    "slug": "millionquery",
+    "title": "MillionQuery"
+  },
+  "model": "trecapp.track",
+  "pk": 3
+},
+{
+  "fields": {
+    "genre": "Web",
+    "track_url": "http://www-nlpir.nist.gov/projects/terabyte/",
+    "description": "Terabyte Web Track",
+    "slug": "terabyte",
+    "title": "Terabyte"
+  },
+  "model": "trecapp.track",
+  "pk": 4
+},
+{
+  "fields": {
+    "genre": "News",
+    "track_url": "",
+    "description": "News Retrieval Track",
+    "slug": "apnews",
+    "title": "APNews"
+  },
+  "model": "trecapp.track",
+  "pk": 5
+}
+]

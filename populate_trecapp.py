@@ -1,6 +1,7 @@
 # Population Script
 import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'trec_evaluator.settings')
+from subprocess import call
 
 import django
 django.setup()
@@ -184,9 +185,9 @@ def add_researcher(username, password, display_name, organization):
 if __name__ == '__main__':
 	print "Starting trecapp population script..."
 	populate()
-	python manage.py loaddata researcher.json
-	python manage.py loaddata task.json
-	python manage.py loaddata track.json
-	python manage.py loaddata run.json
-	python manage.py loaddata leaderboard.json
+	call(["python", "manage.py", "loaddata", "researcher.json"])
+	call(["python", "manage.py", "loaddata", "task.json"])
+	call(["python", "manage.py", "loaddata", "track.json"])
+	call(["python", "manage.py", "loaddata", "run.json"])
+	call(["python", "manage.py", "loaddata", "leaderboard.json"])
 	print "Done"

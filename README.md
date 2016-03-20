@@ -20,6 +20,7 @@ This is a django webapp to perform search comparison magic
       python populate_trecapp.py 
       
    ```
+   This will generate various warnings on pythonanywhere, but it works, regardless
 
 6. run python manage.py runserver, and navigate to 127.0.0.1:8000/trecapp
 

@@ -35,6 +35,6 @@ gaftra: Stephen Brown 1106679B
 
 juranec: Daniel Juranec 2145171J
 
-kristinagenova: Kristina Genova <'number>
+kristinagenova: Kristina Genova 2145921G
 
 <'githubID>: Dominykas Vytautas Jakstonis <'number>

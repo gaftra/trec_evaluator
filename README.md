@@ -3,7 +3,7 @@
 This is a django webapp to perform search comparison magic
 
 ##Steps to setup
-
+-------------------------------
 1. mkvirtualenv --system-site-packages [env_name] && workon [env_name]
 
 2. In a directory, call git clone https://github.com/gaftra/trec_evalutor.git. This will create a folder structure of trec_evalutor/[repo_contents]
@@ -33,3 +33,12 @@ juranec: Daniel Juranec 2145171J
 kristinagenova: Kristina Genova 2145921G
 
 <'githubID>: Dominykas Vytautas Jakstonis <'number>
+
+##Test Users
+------------------------------
+username	password
+jill		jill
+jim		jim
+joe		joe
+bob		bob
+jen		jen

@@ -3,12 +3,12 @@ Task List
 Setup a github repository [Stephen - Done]
 
 Login/Register [Daniel - Done]
-----Create a Login View [ Stephen - Done]
-----Create a Login Template [Stephen - Done]
-----Create a Registration View [Stephen - Done]
-----Create a Registration Template [Stephen - Done]
-----Create a Registration Form [Stephen - Done]
-----Create a User Model [ Stephen - Done]
+----Create a Login View 
+----Create a Login Template 
+----Create a Registration View
+----Create a Registration Template
+----Create a Registration Form
+----Create a User Model
 
 View Tracks and Tasks [Stephen - Done]
 ----Create a Track Model
@@ -18,13 +18,13 @@ View Tracks and Tasks [Stephen - Done]
 ----Create a template for Viewing Tracks
 ----Create a template for Viewing Tasks
 
-Researcher uploads a file [Mixed]
-----Allow a researcher to upload and store their .res file [Stephen - Done]
-----Run the .res file against trec eval [Stephen - Done]
-----Return the results in a format python can understand [Stephen - Done]
-----Create a form for uploading the file [Stephen - Done]
-----Create a view for uploading the file [Stephen - Done]
-----Create a template for uploading the file [Stephen - Done]
+Researcher uploads a file [Stephen - Done]
+----Allow a researcher to upload and store their .res file
+----Run the .res file against trec eval
+----Return the results in a format python can understand
+----Create a form for uploading the file
+----Create a view for uploading the file
+----Create a template for uploading the file
 
 Leaderboards [Kristina]
 ----Design what the leaderboard looks like (eg run name, resaarcher name, P10, P20, MAP, etc?)
@@ -36,5 +36,4 @@ Administrative Tasks [Stephen - Done]
 
 Other
 ----Create a base template, with a header and a footer [Stephen - Done]
-----Create some nice CSS [Stephen - Done]
-----Update population script to include the sample runs
+----Update population script to include the sample runs [Stephen - Done]

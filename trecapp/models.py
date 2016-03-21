@@ -5,10 +5,6 @@ from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 
 
-# Create your models here.
-
-# STUB to get the run model working
-
 def upload_dir(instance, filename):
     return 'images/' + str(instance.user.username) + '/' + filename
 
@@ -60,7 +56,10 @@ class Task(models.Model):
 
 
 class Run(models.Model):
-    # Defining enum types
+    '''
+	Here we define enum types, for use when uploading a run
+	'''
+	# Run_type
     AUTOMATIC = 0
     MANUAL = 1
     RUN_TYPE = (
@@ -68,6 +67,7 @@ class Run(models.Model):
         (MANUAL, 'Manual'),
     )
 
+	# Query_type
     TITLE = 0
     TITLE_DESC = 1
     DESCRIPTION = 2
@@ -81,6 +81,7 @@ class Run(models.Model):
         (OTHER, "Other"),
     )
 
+	# feedback_type
     NONE = 0
     PSEUDO = 1
     RELEVANCE = 2

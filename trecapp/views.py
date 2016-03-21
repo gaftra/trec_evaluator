@@ -13,7 +13,7 @@ from django.core.files import File
 import subprocess
 from subprocess import check_output
 
-# Create your views here.
+# The view for a profile page
 def profile(request):
 	context_dict = {}
 	
@@ -36,6 +36,7 @@ def profile(request):
 
 	return render(request, 'trecapp/profile.html', context_dict)
 
+# The view for editing a profile page
 def editprofile(request):
 	context_dict = {}
 
@@ -87,7 +88,7 @@ def editprofile(request):
 
 	return render(request, 'trecapp/editprofile.html', context_dict )
 
-
+# The view for each track page
 def track(request, track_name_slug):
 	context_dict = {}
 	
@@ -104,10 +105,11 @@ def track(request, track_name_slug):
 		
 	return render(request, 'trecapp/track.html', context_dict)
 	
+# The view for each task page
 def task(request, track_name_slug, task_name_slug):
 	context_dict = {}
 	
-	# If the user is logged in, create a form
+	# If the user is logged in, create a form to upload a run
 	if request.user.is_authenticated():
 		try:
 			track_name = Track.objects.get(slug=track_name_slug)
@@ -130,22 +132,28 @@ def task(request, track_name_slug, task_name_slug):
 					run.task = task
 					form.save(commit=True)
 	
-					# Interact with trec_eval
+					'''
+					Here we interact with trec_eval to get map p10 and p20
+					'''
+					# Get the location of the given judgement file
 					judgement_file_location = File(run.task.judgementFile).name
 					judgement_file_location = judgement_file_location[1:]
 					true_judgement_file_location = os.path.join(settings.BASE_DIR, judgement_file_location)
 
+					# Get the location of the given results file
 					result_file_location = File(run.result_file).name
 					true_result_file_location = os.path.join(settings.MEDIA_ROOT, result_file_location)
 
+					# Get the location of trec_eval
 					trec_eval_location = os.path.join(settings.BASE_DIR, 'trec_eval')
 
+					# Call the appropriate command, and store its results
 					return_string = check_output([trec_eval_location, true_judgement_file_location, true_result_file_location])
 	
 					map_string = ""
 					p10_string = ""
 					p20_string = ""
-					# Scan through return string to extract MAP, P10 and P20
+					# Scan through returned string to extract MAP, P10 and P20
 					for line in iter(return_string.splitlines()):
 						if 'map' in line and not 'gm_map' in line:
 							map_string = line
@@ -163,7 +171,9 @@ def task(request, track_name_slug, task_name_slug):
 					run.map = map_value
 					run.p10 = p10_value
 					run.p20 = p20_value
+					
 					form.save(commit=True)
+					
 					return index(request)
 					
 				else:

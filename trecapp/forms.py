@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from trecapp.models import Run, Researcher
 from django.forms import ModelForm
 
+'''
+The form for a researcher to upload a run to trec_evaluator
+'''
 class UploadRunForm(forms.ModelForm):
 	name 			= forms.CharField(max_length=128, help_text="Please enter the runs name: ")
 	description 	= forms.CharField(widget=forms.TextInput(), max_length=512, help_text="Please enter the runs description: ")

@@ -17,7 +17,6 @@
 					<div class="col-md-6">
 						<ul class="list-group">
 							{% for task in tasks %}
-							<!-- Change this to a link to each individual task page -->
 							<li class="list-group-item"><a href="/trecapp/track/{{ track.slug }}/{{ task.slug }}">{{ task.title }}</a></li>
 						{% endfor %}
 						</ul>
@@ -25,13 +24,7 @@
 				</div>
 			{% else %}
 				<p>No tasks currently in track.</p>
-			{% endif %}
-			
-			<!-- This section will allow a logged in user to upload a results file for later comparison -->
-			<!-- Uncomment when authentication has been added
-			{% if user.is_authenticated %}
-			{% endif %} -->
-				
+			{% endif %}			
 	{% else %}
 		<p>The specified track {{ track_title }} does not exist!</p>
 	{% endif %}

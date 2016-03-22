@@ -160,8 +160,8 @@ def populate():
 		map = 0.1764,
 		p10 = 0.3469,
 		p20 = 0.3367,
-	)	
-	
+	)
+
 	add_run (
 		researcher = jill,
 		task = robust_adhoc,
@@ -255,9 +255,4 @@ def add_run(researcher, task, name, description, result_file, run_type, query_ty
 if __name__ == '__main__':
 	print "Starting trecapp population script..."
 	populate()
-	call(["python", "manage.py", "loaddata", "researcher.json"])
-	call(["python", "manage.py", "loaddata", "task.json"])
-	call(["python", "manage.py", "loaddata", "track.json"])
-	call(["python", "manage.py", "loaddata", "run.json"])
-	call(["python", "manage.py", "loaddata", "leaderboard.json"])
 	print "Done"

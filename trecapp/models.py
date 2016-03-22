@@ -110,11 +110,3 @@ class Run(models.Model):
 
     def __unicode__(self):
         return self.name
-
-
-class Leaderboard(models.Model):
-    run = models.ForeignKey(Run, null=False)
-    researcher_name = models.CharField(max_length=64, null=True)
-    map = models.FloatField(default=0.0, null=True)
-    p10 = models.FloatField(default=0.0, null=True)
-    p20 = models.FloatField(default=0.0, null=True)

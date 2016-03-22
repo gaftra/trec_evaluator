@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from trecapp.models import Track
 from trecapp.models import Task
 from trecapp.models import Researcher
-from trecapp.models import Leaderboard
 from django.contrib.auth.models import User
 from trecapp.models import Run
 from trecapp.forms import UploadRunForm, UserForm, ResearcherForm, UserEditForm
@@ -108,6 +107,11 @@ def track(request, track_name_slug):
 # The view for each task page
 def task(request, track_name_slug, task_name_slug):
 	context_dict = {}
+	track_name = Track.objects.get(slug=track_name_slug)
+	task = Task.objects.get(slug=task_name_slug, track=track_name)
+	data = Run.objects.order_by('-map')
+
+	context_dict['data'] = data
 	
 	# If the user is logged in, create a form to upload a run
 	if request.user.is_authenticated():
@@ -228,9 +232,3 @@ def register(request):
 		researcher_form = ResearcherForm()
 		
 	return render(request, 'trecapp/register.html', {'user_form': user_form, 'researcher_form': researcher_form, 'registered': registered } )
-
-def leaderboard(request):
-
-	data = Leaderboard.objects.order_by('-map')
-
-	return render (request, "trecapp/leaderboard.html", {"data": data } )

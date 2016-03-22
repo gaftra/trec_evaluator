@@ -29,4 +29,38 @@
 	{% else %}
 		<p>Please login to upload a run</p>
 	{% endif %}
+    {% if data %}
+        <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Leaderboard</h3>
+        </div>
+    </div>
+
+    <div class="row placeholders">
+        <div class="col-xs-12 col-sm-6 placeholder">
+            <table class="table table-bordered">
+                <thead>
+                    <td>Researcher's name</td>
+                    <td>Run's name</td>
+                    <td>Map score</td>
+                    <td>p10</td>
+                    <td>p20</td>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                    <tr>
+                        <td>{{ row.researcher.display_name }}</td>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.map }}</td>
+                        <td>{{ row.p10 }}</td>
+                        <td>{{ row.p20 }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% else %}
+        no runs submitted
+    {% endif %}
 {% endblock %}

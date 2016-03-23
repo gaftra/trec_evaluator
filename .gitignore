@@ -74,5 +74,11 @@ thumbs.db
 # Temporary results files
 media/results/*
 
+# Uploaded images
+media/images/*
+
+# Uploaded track files
+media/data/*
+
 # IDE files
 .idea

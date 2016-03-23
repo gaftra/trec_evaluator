@@ -1,0 +1,28 @@
+Nimble Navigator: [Someone] - Will control the app using mouse/keyboard
+Presenter Eagle: [Someone] - Will present the app to the crowd
+Presenter Centipede: [Someone] - Will present the app to the crowd
+Presenter Stumped: [Someone] - Will present the app to the crowd
+
+!!! Need a USB with some example data - eg two files for empty task for leaderboard, two profile pictures, sample relevancy judgement file !!!
+
+- Basic Introduction to Trec_evaluator
+	The purpose of this application is to provide a tool that lets researchers evaluate how good their search system is and how it compares to other systems
+	^ The gist of it
+
+- Walkthrough of Registering, logging in and creating a profile
+	Create a new user
+	Changing profile picture
+	Logging out
+
+- Walkthrough of viewing a task
+	Click on robust2005, ad hoc task retrieval, look at leaderboard and sort it
+
+- Walkthrough of uploading a run
+	Log in to test user joe
+	Upload two runs to apnews ad hoc task retrieval
+	compare them on leaderboard
+
+- Walkthrough of admin creating a track and tasks
+	Create track AP News Part 2 
+	Create task ad hac tosk retrieval, using same judgement file for apnews
+	upload one run from the two samples we have, on the admin interface	

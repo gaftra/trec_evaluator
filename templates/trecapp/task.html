@@ -24,11 +24,13 @@
 				{{ field }}<br />
 			{% endfor %}
 		
-			<button class="btn btn-primary" type="submit" name="submit">Upload Run</button>
+			<button class="btn btn-primary" type="submit" name="submit">Upload run</button>
 		</form>
+        <br/>
 	{% else %}
 		<p>Please login to upload a run</p>
 	{% endif %}
+
 
 
     <div class="panel panel-primary">
@@ -39,14 +41,14 @@
 
     {% if data %}
         <div class="row placeholders">
-            <div class="col-xs-12 col-sm-6 placeholder">
-                <table class="table table-bordered">
+            <div class="col-xs-12 col-md-12 placeholder">
+                <table class="sortable-theme-bootstrap" data-sortable>
                     <thead>
-                        <td>Researcher's name</td>
-                        <td>Run's name</td>
-                        <td>Map score</td>
-                        <td>p10</td>
-                        <td>p20</td>
+                        <th>Researcher's name</th>
+                        <th>Run's name</th>
+                        <th>Map score</th>
+                        <th>p10</th>
+                        <th>p20</th>
                     </thead>
                     <tbody>
                         {% for row in data %}
@@ -63,6 +65,6 @@
             </div>
         </div>
     {% else %}
-        No runs have been submitted for this Task
+        No runs have been submitted for this task
     {% endif %}
 {% endblock %}

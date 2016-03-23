@@ -20,8 +20,6 @@ This is a django webapp to perform search comparison magic
       python populate_trecapp.py 
       
    ```
-   This will generate various warnings on pythonanywhere, but it works, regardless
-
 6. run python manage.py runserver, and navigate to 127.0.0.1:8000/trecapp
 
 ##Contributors
@@ -42,3 +40,9 @@ jim		jim
 joe		joe
 bob		bob
 jen		jen
+
+##Known Issues
+-----------------------------
+1. Trying to access a task at trecapp/track_name/task_name while logged in
+as an administrator will return an error
+2. Trying to upload a results file for an inappropriate task will give a CalledProcessError

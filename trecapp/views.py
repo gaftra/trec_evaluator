@@ -144,8 +144,9 @@ def task(request, track_name_slug, task_name_slug):
 					'''
 					# Get the location of the given judgement file
 					judgement_file_location = File(run.task.judgementFile).name
-					judgement_file_location = judgement_file_location[1:]
-					true_judgement_file_location = os.path.join(settings.BASE_DIR, judgement_file_location)
+                                        if judgement_file_location[1:] == '/':
+					    judgement_file_location = judgement_file_location[1:]
+					true_judgement_file_location = os.path.join(settings.MEDIA_ROOT, judgement_file_location)
 
 					# Get the location of the given results file
 					result_file_location = File(run.result_file).name

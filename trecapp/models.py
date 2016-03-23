@@ -44,7 +44,7 @@ class Task(models.Model):
     task_url = models.URLField()
     description = models.CharField(max_length=400)
     year = models.IntegerField(default=2016)
-    judgementFile = models.FileField(upload_to='/media/data', null=False)
+    judgementFile = models.FileField(upload_to='data', null=False)
     slug = models.SlugField()
 
     def save(self, *args, **kwargs):

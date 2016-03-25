@@ -1,9 +1,9 @@
-Nimble Navigator: [Someone] - Will control the app using mouse/keyboard
-Presenter Eagle: [Someone] - Will present the app to the crowd
-Presenter Centipede: [Someone] - Will present the app to the crowd
-Presenter Stumped: [Someone] - Will present the app to the crowd
-
 !!! Need a USB with some example data - eg two files for empty task for leaderboard, two profile pictures, sample relevancy judgement file !!!
+
+!!! Run these commands before starting -
+!!! python manage.py flush
+!!! python manage.py createsuperuser (admin:admin)
+!!! python populate_trecapp.py
 
 - Basic Introduction to Trec_evaluator
 	The purpose of this application is to provide a tool that lets researchers evaluate how good their search system is and how it compares to other systems
@@ -24,5 +24,17 @@ Presenter Stumped: [Someone] - Will present the app to the crowd
 
 - Walkthrough of admin creating a track and tasks
 	Create track AP News Part 2 
+		-- url - something useless because it's a test/example track: http://www.google.com
+		-- description: Ap news done again but better
+		-- genre: news
+		-- slug: apnewspart2 (Will be changed by django no matter what)
 	Create task ad hac tosk retrieval, using same judgement file for apnews
-	upload one run from the two samples we have, on the admin interface	
+		-- title: Task Retrieval
+		-- url: Again its an example: http;//www.google.com
+		-- description: Search for things
+		-- year: It's current year
+		-- slug: adhoc (will be changed by django)
+	upload one run from the two samples we have	
+		-- Log in a test user to do this, the admin interface won't automatically calculate map p10 and p20	
+		-- Will just say the admin will have access to a test account
+		-- Or perhaps just associate a researcher with the admin account in population script?

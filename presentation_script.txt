@@ -38,4 +38,3 @@
 	upload one run from the two samples we have	
 		-- Log in a test user to do this, the admin interface won't automatically calculate map p10 and p20	
 		-- Will just say the admin will have access to a test account
-		-- Or perhaps just associate a researcher with the admin account in population script?

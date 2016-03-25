@@ -23,6 +23,7 @@
 	compare them on leaderboard
 
 - Walkthrough of admin creating a track and tasks
+	login is admin:admin
 	Create track AP News Part 2 
 		-- url - something useless because it's a test/example track: http://www.google.com
 		-- description: Ap news done again but better
